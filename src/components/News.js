@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const News = (props) => {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
-  const [totalResults, setTotalResults] = useState(0);
+  // const [totalResults, setTotalResults] = useState(0);
   const [hasMore, setHasMore] = useState(true);
 
   const updateNews = async () => {
@@ -20,7 +20,7 @@ const News = (props) => {
     props.setProgress(70);
 
     setArticles(data.articles );
-    setTotalResults(data.totalResults );
+    // setTotalResults(data.totalResults );
     setHasMore(data.articles.length < data.totalResults);
     props.setProgress(100);
   };
@@ -46,7 +46,7 @@ const News = (props) => {
     const updatedArticles = articles.concat(newArticles);
     setArticles(updatedArticles);
     setPage(nextPage);
-    setTotalResults(data.totalResults);
+    // setTotalResults(data.totalResults);
   };
 
   return (
