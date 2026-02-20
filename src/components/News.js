@@ -12,7 +12,7 @@ const News = (props) => {
 
   const updateNews = async () => {
     props.setProgress(10);
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=1&pageSize=${props.pageSize}`;
+  let url = `/api/news?country=${props.country}&category=${props.category}&page=1&pageSize=${props.pageSize}`;
     let fetchdata = await fetch(url);
     props.setProgress(30);
 
@@ -32,7 +32,7 @@ const News = (props) => {
 
   const fetchMoreData = async () => {
     const nextPage = page + 1;
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${nextPage}&pageSize=${props.pageSize}`;
+  let url = `/api/news?country=${props.country}&category=${props.category}&page=${nextPage}&pageSize=${props.pageSize}`;
     let fetchdata = await fetch(url);
     let data = await fetchdata.json();
 
